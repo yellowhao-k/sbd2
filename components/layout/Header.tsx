@@ -111,13 +111,7 @@ export default function Header() {
               >
                 博客
               </Link>
-              <Link
-                href="/hot-links"
-                className="text-gray-900 font-semibold hover:text-primary-600 transition px-2 py-2 text-base"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                热门链接
-              </Link>
+              
               <Link
                 href="/about"
                 className="text-gray-900 font-semibold hover:text-primary-600 transition px-2 py-2 text-base"

@@ -85,14 +85,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.7,
     },
-    {
-      url: `${siteUrl}/hot-links`,
-      lastModified: getFileModificationDate(
-        path.join(process.cwd(), "app", "hot-links", "page.tsx")
-      ),
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
-    },
+    
   ];
 
   const serviceRoutes = services.map((service) => {
