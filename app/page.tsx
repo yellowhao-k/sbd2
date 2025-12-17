@@ -1,13 +1,32 @@
 import Link from "next/link";
 import { generateMetadata as genMeta } from "@/lib/seo";
 import JsonLd from "@/components/seo/JsonLd";
-import { generateOrganizationSchema } from "@/lib/seo";
+import {
+  generateOrganizationSchema,
+  generateLocalBusinessSchema,
+  generateWebSiteSchema,
+} from "@/lib/seo";
 import { ArrowRight, Package, Plane, Ship, Train, Globe } from "lucide-react";
+import PartnersCarousel from "@/components/home/PartnersCarousel";
+import PhoneLink from "@/components/common/PhoneLink";
 
 export const metadata = genMeta({
   title: "国际物流服务 | 专业跨境物流解决方案",
   description: "专业的国际物流服务商，提供中国到美国、欧洲、加拿大、澳大利亚等国家的快递、空运、海运服务，FBA头程、海外仓、清关一站式服务。",
   path: "/",
+  keywords: [
+    "国际物流",
+    "跨境物流",
+    "国际快递",
+    "FBA头程",
+    "海外仓",
+    "清关服务",
+    "深圳物流公司",
+    "国际空运",
+    "国际海运",
+    "中国到美国物流",
+    "中国到欧洲物流",
+  ],
 });
 
 export default function HomePage() {
@@ -50,6 +69,8 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={generateOrganizationSchema()} />
+      <JsonLd data={generateLocalBusinessSchema()} />
+      <JsonLd data={generateWebSiteSchema()} />
       
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20">
@@ -59,7 +80,7 @@ export default function HomePage() {
               专业的国际物流服务
             </h1>
             <p className="text-xl mb-8 text-primary-100">
-              为中国出口企业提供高效、可靠的跨境物流解决方案，覆盖全球主要市场
+              为中国出口企业及个人卖家提供高效、可靠的跨境物流解决方案，覆盖全球主要市场
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -68,12 +89,12 @@ export default function HomePage() {
               >
                 查看服务
               </Link>
-              <a
-                href="tel:+86-135-5379-6071"
+              <PhoneLink
+                phoneNumber="+86-135-5379-6071"
                 className="bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-400 transition border-2 border-white"
               >
                 立即咨询
-              </a>
+              </PhoneLink>
             </div>
           </div>
         </div>
@@ -124,6 +145,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Partners Carousel Section */}
+      <PartnersCarousel />
+
       {/* CTA Section */}
       <section className="bg-primary-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
@@ -132,12 +156,13 @@ export default function HomePage() {
             联系我们获取专属物流方案和报价
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="tel:+86-135-5379-6071"
+            <PhoneLink
+              phoneNumber="+86-135-5379-6071"
+              displayNumber="135-5379-6071"
               className="bg-white text-primary-600 px-8 py-3 rounded-lg font-semibold hover:bg-primary-50 transition"
             >
               联系 135-5379-6071
-            </a>
+            </PhoneLink>
             <Link
               href="/blog"
               className="bg-primary-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-400 transition border-2 border-white"

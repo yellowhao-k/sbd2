@@ -10,16 +10,27 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: {
     default: "国际物流服务 | 专业跨境物流解决方案",
-    template: "%s | 国际物流服务",
+    template: "%s | 深圳时必达国际物流",
   },
   description: "专业的国际物流服务商，提供中国到美国、欧洲、加拿大、澳大利亚等国家的快递、空运、海运服务，FBA头程、海外仓、清关一站式服务。",
-  keywords: ["国际物流", "跨境物流", "国际快递", "FBA头程", "海外仓", "清关服务"],
-  authors: [{ name: "国际物流公司" }],
+  keywords: [
+    "国际物流",
+    "跨境物流",
+    "国际快递",
+    "FBA头程",
+    "海外仓",
+    "清关服务",
+    "深圳物流公司",
+    "时必达国际物流",
+    "国际空运",
+    "国际海运",
+  ],
+  authors: [{ name: "深圳时必达国际物流" }],
   openGraph: {
     type: "website",
     locale: "zh_CN",
-    url: "https://www.example.com",
-    siteName: "国际物流服务",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.com",
+    siteName: "深圳时必达国际物流",
     title: "国际物流服务 | 专业跨境物流解决方案",
     description: "专业的国际物流服务商，提供中国到全球的物流解决方案",
   },
@@ -33,6 +44,9 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.com",
   },
 };
 

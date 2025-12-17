@@ -1,6 +1,7 @@
 "use client";
 
 import { X } from "lucide-react";
+import PhoneLink from "@/components/common/PhoneLink";
 
 interface WeChatModalProps {
   isOpen: boolean;
@@ -32,15 +33,15 @@ export default function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
           <p className="text-gray-600 mb-6">添加微信咨询，获取专属物流方案</p>
           
           <div className="bg-gray-100 p-6 rounded-lg mb-6 flex justify-center">
-            <div className="w-48 h-48 bg-gray-300 flex items-center justify-center text-gray-500">
-              {/* 这里放置微信二维码图片 */}
-              <p className="text-xs mt-2"><img src="/wx2.jpg"></img></p>
-              
-            </div>
+            <img
+              src="/wx2.jpg"
+              alt="微信二维码 - 扫码添加微信咨询物流服务"
+              className="w-48 h-48 object-contain rounded"
+            />
           </div>
           
           <p className="text-sm text-gray-500">
-            或直接联系：<a href="tel:+86-135-5379-6071" className="text-primary-600 hover:underline">135-5379-6071</a>
+            或直接联系：<PhoneLink phoneNumber="+86-135-5379-6071" displayNumber="135-5379-6071" className="text-primary-600 hover:underline">135-5379-6071</PhoneLink>
           </p>
         </div>
       </div>

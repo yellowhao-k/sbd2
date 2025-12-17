@@ -5,6 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { generateServiceSchema, generateBreadcrumbSchema } from "@/lib/seo";
 import Link from "next/link";
 import MarkdownContent from "@/components/content/MarkdownContent";
+import PhoneLink from "@/components/common/PhoneLink";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.com";
 
@@ -74,26 +75,28 @@ export default function CountryPage({ params }: { params: { slug: string } }) {
           <div className="prose">
             <MarkdownContent content={country.content} />
           </div>
-
-          <div className="mt-12 p-6 bg-primary-50 rounded-lg">
-            <h2 className="text-2xl font-semibold mb-4">需要此专线服务？</h2>
-            <p className="mb-4">联系我们获取专属方案和报价</p>
-            <div className="flex flex-wrap gap-4">
-              <a
-                href="tel:+86-135-5379-6071"
-                className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition"
-              >
-                联系 135-5379-6071
-              </a>
-              <a
-                href="mailto:yellowhao68@gmail.com"
-                className="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition border-2 border-primary-600"
-              >
-                发送邮件
-              </a>
-            </div>
-          </div>
         </article>
+
+        {/* CTA Section - 移出prose容器以避免样式冲突 */}
+        <div className="mt-12 p-6 bg-primary-50 rounded-lg max-w-4xl">
+          <h2 className="text-2xl font-semibold mb-4">需要此专线服务？</h2>
+          <p className="mb-4 text-gray-700">联系我们获取专属方案和报价</p>
+          <div className="flex flex-wrap gap-4">
+            <PhoneLink
+              phoneNumber="+86-135-5379-6071"
+              displayNumber="135-5379-6071"
+              className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition no-underline"
+            >
+              联系 135-5379-6071
+            </PhoneLink>
+            <a
+              href="mailto:yellowhao68@gmail.com"
+              className="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition border-2 border-primary-600 no-underline"
+            >
+              发送邮件
+            </a>
+          </div>
+        </div>
       </div>
     </>
   );

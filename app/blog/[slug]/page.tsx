@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import { zhCN } from "date-fns/locale/zh-CN";
 import { Calendar, User, Tag as TagIcon } from "lucide-react";
 import MarkdownContent from "@/components/content/MarkdownContent";
+import PhoneLink from "@/components/common/PhoneLink";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.example.com";
 
@@ -203,12 +204,13 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   和预估重量发给我们，帮您快速评估时效、渠道和整体费用区间。
                 </p>
                 <div className="flex flex-wrap gap-3 sm:gap-4">
-                  <a
-                    href="tel:+86-135-5379-6071"
+                  <PhoneLink
+                    phoneNumber="+86-135-5379-6071"
+                    displayNumber="135-5379-6071"
                     className="inline-flex items-center justify-center rounded-lg bg-primary-500 px-5 py-2.5 text-xs sm:text-sm md:text-base font-semibold text-white shadow-sm hover:bg-primary-400 transition"
                   >
                     联系 135-5379-6071 咨询
-                  </a>
+                  </PhoneLink>
                 <a
                   href="mailto:yellowhao68@gmail.com"
                   className="inline-flex items-center justify-center rounded-lg border border-slate-500/60 px-5 py-2.5 text-xs sm:text-sm md:text-base font-semibold text-slate-50 hover:bg-slate-800 transition"
